@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { commentModel } from "../models/commentModel.mjs";
 
+
 describe("CommentModel Tests", () => {
   it("should create a valid comment object", () => {
     const comment = commentModel("Great offer!", "user123", "offer123");

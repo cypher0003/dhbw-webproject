@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { userModel } from "../models/userModel.mjs";
 import { userRole } from "../Enums/userRole.mjs";
+import { sha256 } from "js-sha256";
 
 describe("UserModel Tests", () => {
     it("should create a valid user object", () => {
@@ -19,7 +20,7 @@ describe("UserModel Tests", () => {
       expect(user.lastname).to.equal("Doe");
       expect(user.email).to.equal("john.doe@example.com");
       expect(user.phone).to.equal("+123456789");
-      expect(user.password).to.equal("securepassword");
+      expect(user.password).to.equal(sha256("securepassword"))
       expect(user.role).to.equal(userRole.user);
     });
 });

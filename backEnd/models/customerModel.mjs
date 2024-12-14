@@ -7,6 +7,7 @@ export const customerModel = (firstName, lastName, email, phone, address) => {
         email,
         phone,
         address,
+        allocatedOffers: [],
         creationDate: new Date(),
         updateDate: new Date()
     };

@@ -14,12 +14,3 @@ export const userModel =(userName, firstname, lastname, email, phone, password) 
     role: userRole.user,
     }
 }
-
-const test= userModel("johndoe",
-        "John",
-        "Doe",
-        "john.doe@example.com",
-        "+123456789",
-        "securepassword")
-
-console.log(test.password)
