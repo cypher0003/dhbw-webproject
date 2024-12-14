@@ -1,4 +1,4 @@
-import { userRole } from "../../Enums/userRole.mjs"
+
 import { checkIfAM } from "../customer/checkIfAM.mjs"
 
 export const offers = [];
@@ -10,7 +10,7 @@ if (checkIfAM(user)===false)
     else{
         offers.push({
             ...offer,
-            addedAd: new Date(),
+            addedAt: new Date(),
         })
     }
 

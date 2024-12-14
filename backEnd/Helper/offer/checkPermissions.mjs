@@ -1,7 +1,7 @@
 import { userRole } from "../../Enums/userRole.mjs"
 import { offerStatus } from "../../Enums/offerStatus.mjs";
 
-export const checkPermission = (user, offer, requiredRole, allowedStatus) => 
+export const checkPermission = (user, offer) => 
 {
 let isUserPermitted = false;
 let isOfferModifyable = false;

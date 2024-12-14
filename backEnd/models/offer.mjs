@@ -8,7 +8,6 @@ export const offerModel = (title, description, customerId)=>{
         description,
         customerId,
         documents:[],
-        comments: [],
         notes: [],
         status: offerStatus.draft,
         creationDate: new Date(),
