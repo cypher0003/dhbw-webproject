@@ -3,7 +3,7 @@ import { userModel } from "../../models/userModel.mjs";
 
 //AM stands for Account Manager
 
-export const checkIfAM = (userModel, userRole) => {
+export const checkIfAM = (userModel) => {
     let checkVar = false;
     if (userModel.role === userRole.accountManager) {
         checkVar = true;

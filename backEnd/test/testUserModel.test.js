@@ -25,6 +25,7 @@ describe("UserModel Tests", () => {
       expect(user.password).to.equal(sha256("securepassword"))
       expect(user.role).to.equal(userRole.user);
     });
+
     it("should add a user and save it", () => {
       const user1 = userModel(
         "johndoe",
@@ -36,18 +37,21 @@ describe("UserModel Tests", () => {
       );
 
       const user2 = userModel(
-        "johndoe",
-        "John",
+        "janedoe",
+        "Jane",
         "Doe",
         "john.doe@example.com",
         "+123456789",
         "securepassword"
       );
+      user1.role = userRole.accountManager;
+      user2.role = userRole.accountManager;
 
       addUser(user1);
       addUser(user2);
 
       expect(users[0].userName).to.equal("johndoe")
+      expect(users[1].userName).to.equal("janedoe")
     })
 });
 

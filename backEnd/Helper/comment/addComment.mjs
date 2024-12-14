@@ -12,7 +12,6 @@ export const addComment = (offer, commentText, user) => {
       }
 
       offer.comments.push({
-        id: v4(),
         text: commentText,
         userId: user.id,
         date: new Date(),

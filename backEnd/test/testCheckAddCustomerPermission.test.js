@@ -1,10 +1,10 @@
-import { checkAddCustomerPersmission } from "../Helper/customer/checkIfAM.mjs";
+import { checkIfAM } from "../Helper/customer/checkIfAM.mjs";
 import { expect } from "chai";
 import { userModel } from "../models/userModel.mjs";
 import { userRole } from "../Enums/userRole.mjs";
 import { sha256 } from "js-sha256";
 
-describe("UserModel Tests", () => {
+describe("CheckAddCustomer Tests", () => {
     it("should create a valid user object", () => {
       const user = userModel(
         "johndoe",
@@ -24,5 +24,18 @@ describe("UserModel Tests", () => {
       expect(user.password).to.equal(sha256("securepassword"))
       expect(user.role).to.equal(userRole.user);
     });
-});
 
+    it("should check if permitted to add customers", () =>{
+      const user = userModel(
+        "johndoe",
+        "John",
+        "Doe",
+        "john.doe@example.com",
+        "+123456789",
+        "securepassword"
+      )
+      user.role = userRole.accountManager
+      expect(checkIfAM(user)).to.equal(true)
+    })
+
+});

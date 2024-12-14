@@ -11,7 +11,6 @@ export const addDocument = (offer, document, user) => {
       }
 
       offer.documents.push({
-        id: v4(),
         ...document,
         addedDate: new Date(),
       });
