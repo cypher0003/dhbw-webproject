@@ -1,9 +1,8 @@
+import { checkAddCustomerPersmission } from "../Helper/customer/checkIfAM.mjs";
 import { expect } from "chai";
 import { userModel } from "../models/userModel.mjs";
 import { userRole } from "../Enums/userRole.mjs";
 import { sha256 } from "js-sha256";
-import { addUser } from "../Helper/user/addUser.mjs";
-import { users } from "../Helper/user/addUser.mjs";
 
 describe("UserModel Tests", () => {
     it("should create a valid user object", () => {
@@ -25,29 +24,5 @@ describe("UserModel Tests", () => {
       expect(user.password).to.equal(sha256("securepassword"))
       expect(user.role).to.equal(userRole.user);
     });
-    it("should add a user and save it", () => {
-      const user1 = userModel(
-        "johndoe",
-        "John",
-        "Doe",
-        "john.doe@example.com",
-        "+123456789",
-        "securepassword"
-      );
-
-      const user2 = userModel(
-        "johndoe",
-        "John",
-        "Doe",
-        "john.doe@example.com",
-        "+123456789",
-        "securepassword"
-      );
-
-      addUser(user1);
-      addUser(user2);
-
-      expect(users[0].userName).to.equal("johndoe")
-    })
 });
 
