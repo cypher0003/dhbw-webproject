@@ -5,35 +5,37 @@ import { noteModel } from "../../models/noteModel.mjs";
 import { offerModel } from "../../models/offer.mjs";
 import { userRole } from "../../Enums/userRole.mjs";
 
-export const addComment = (note,offer) => {
-  console.log(note.user.role)
-    if (!checkPermission(note.user, offer))
-    {
-        throw new Error("Not permitted")
-    }
+// adds a comment to an offer based on checkPermission functionality
+export const addComment = (note, offer) => {
+  console.log(note.user.role);
+  if (!checkPermission(note.user, offer)) {
+    throw new Error("Not permitted");
+  }
 
-    if (!note || typeof note !== "object" ) {
-        throw new Error(typeof note);
-      }
+  if (!note || typeof note !== "object") {
+    throw new Error(typeof note);
+  }
 
-      offer.notes.push({
-        ...note,
-        userId: note.user.id,
-        date: new Date(),
-      });
-    
-      offer.updateDate = new Date();
-    };
- const user1 = userModel(
-      "johndoe",
-      "John",
-      "Doe",
-      "john.doe@example.com",
-      "+123456789",
-      "securepassword" 
-    );
-    user1.role = userRole.dev;
-    
-    const testOffer = offerModel("Test Offer", "Description", "1234");
-    const comment = noteModel("Great offer!", user1);
-    addComment(comment, testOffer)
+  offer.notes.push({
+    ...note,
+    userId: note.user.id,
+    date: new Date(),
+  });
+
+  offer.updateDate = new Date();
+};
+
+//Test Data should be deleted before deadline
+const user1 = userModel(
+  "johndoe",
+  "John",
+  "Doe",
+  "john.doe@example.com",
+  "+123456789",
+  "securepassword"
+);
+user1.role = userRole.dev;
+
+const testOffer = offerModel("Test Offer", "Description", "1234");
+const comment = noteModel("Great offer!", user1);
+addComment(comment, testOffer);
