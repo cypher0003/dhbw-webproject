@@ -1,5 +1,6 @@
 export const offerStatus = {
   draft: "Draft",
-  actvie: "Active",
+  inProgress: "In Progress",
+  active: "Active",
   ice: "Ice",
 };
