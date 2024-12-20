@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+  
+}
+body {
+  background-color: rgb(113, 112, 112);
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar li::marker {
+  content: "";
+}
+
+.navbar {
+  background-size: auto;
+  height: 100vh;
+  width: 50%;
+  border-color: white;
+}
+
+.button {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 1rem;
+ 
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  white-space: nowrap;
+  width: 30%;
+  transition: box-shadow .2s;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0 3px 8px;
+}
